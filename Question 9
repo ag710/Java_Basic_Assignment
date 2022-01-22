@@ -1,0 +1,78 @@
+class Bank
+{
+    String city;
+    float roi;
+    Bank(String city,float roi)
+    {
+        this.city=city;
+        this.roi=roi;
+    }
+    public void getDetails()
+    {
+        System.out.println("City: "+city+" ROI: "+roi);
+    }
+}
+class SBI extends Bank
+{
+    String branchId;
+    
+    public SBI(String city, float roi, String branchID)
+    {
+        super(city, roi);
+        this.branchId=branchId;
+    }
+    
+    public void getDetails()
+    {
+        super.getDetails();
+        System.out.println("Branch Id: "+ branchId);
+    }
+}
+
+class BOI extends Bank
+{
+    String branchId;
+    public BOI(String city,float roi,String branchId)
+    {
+        super(city,roi);
+        this.branchId=branchId;
+    }
+    
+    public void getDetails()
+    {
+        super.getDetails();
+        System.out.println("BranchId: "+ branchId);
+    }
+}
+
+class ICICI extends Bank
+{
+    String branchId;
+    public ICICI(String city, float roi, String branchId)
+    {
+        super(city, roi);
+        this.branchId=branchId;
+    }
+    
+    public void getDetails()
+    {
+        super.getDetails();
+        System.out.println("BranchId: "+ branchId);
+    }
+}
+
+public class Enter
+{
+public static void main(String[] args)
+{
+    Bank bnk =new Bank("Delhi",1.1f);
+    SBI sbiB= new SBI("Noida",1.2f,"sbiN16");
+    BOI boiB= new BOI("Nagpur",1.3f,"boiN24");
+    ICICI iciciB=new ICICI("Meerut",1.4f,"iciciM17");
+    
+    bnk.getDetails();
+    sbiB.getDetails();
+    boiB.getDetails();
+    iciciB.getDetails();
+}
+}
