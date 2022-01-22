@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String args[]) {
+      int arr[]=new int[9];
+      Scanner sc= new Scanner(System.in);
+      int sum=0;
+      for(int i=0;i<9;i++)
+      {
+          arr[i]=sc.nextInt();
+          sum+=arr[i];
+      }
+      for(int i=0;i<9;i++)
+      {
+           arr[arr[i] %9]= arr[arr[i] % 9]+9;
+      }
+      int cd=0;
+      for (int i = 0; i <9; i++) 
+      {
+        if (arr[i] >= 9*2) 
+        {
+            cd=i;
+        }
+      }
+      int n;
+      n=(sum-cd)%10;
+      if(cd==n)
+      {
+          System.out.println("okay");
+      }
+      else
+      {
+          System.out.println("not okay");
+      }
+    }
+}
