@@ -1,0 +1,77 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Customer{
+ int v;  
+public void bal(int cash)
+{
+ System.out.println("Cash with customer is: "+ cash);
+ v=cash;
+}
+Cashier pl=new Cashier();
+public void placeOrder()
+{
+    int tn=0;
+    Barista br= new Barista();
+    if(v>pl.min)
+    {
+        System.out.println("You can place the order!!");
+        tn=pl.getOrder(v,"Barista");
+        System.out.println(tn);
+        br.confirm();
+    }
+    else
+    {
+        System.out.println("You dont have sufficient balance!!");
+    }
+}
+
+}
+
+class Cashier{
+    int min=100;
+    Barista br= new Barista();
+    public int getOrder(int ch,String ord)
+    {
+        System.out.println("Order for "+ ord +" is Received!! Plz wait for the token");
+        br.ordq(1);
+        System.out.println("Your token number is:");
+        return br.getId();
+    }
+}
+
+class Barista
+{
+  
+   public void ordq(int v)
+    {
+        if(v==1)
+        {
+            System.out.println("Order for Barista is being prepared!!");
+            v=0;
+        }
+    }
+    public int getId()
+    {
+        int min=1;
+        int mx=10;
+        int range=mx-min+1;
+        int rand = (int)(Math.random() * range) + min;
+        return rand;
+    }
+    public void confirm()
+    {
+    System.out.println("Order is ready!!");
+    }
+}
+
+public class Main{
+public static void main(String[] args)
+{
+    Customer ch= new Customer();
+    Scanner sc= new Scanner(System.in);
+    System.out.println("How much cash do you have??");
+    int n=sc.nextInt();
+    ch.bal(n);
+    ch.placeOrder();
+}
+}
