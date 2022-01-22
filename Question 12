@@ -1,0 +1,34 @@
+class InvalidHeightException extends Exception{
+    public InvalidHeightException(String st)
+    {
+        super(st);
+    }
+}
+public class TestException
+{
+    static void validate(int ht) throws InvalidHeightException{
+        if(ht<130)
+        {
+            throw new InvalidHeightException("height does not meet requirements!!");
+        }
+        else
+        {
+            System.out.println("You are eligible to participate!!");
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        try
+        {
+            validate(135);
+        }
+        
+        catch(InvalidHeightException e)
+        {
+            System.out.println("Caught the exception");
+            System.out.println("Exception occured"+ e);
+        }
+        System.out.println("rest of code..");
+    }
+}
