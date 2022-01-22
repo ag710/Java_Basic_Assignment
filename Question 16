@@ -1,0 +1,68 @@
+/*Clone() method:*/
+
+import java.util.ArrayList;
+import java.lang.ClassNotFoundException;
+class Check
+{
+    int x,y;
+}
+
+class Check2 implements Cloneable{
+    int a;
+    int b;
+    Check c= new Check();
+    public Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
+    }
+}
+ public class Main{
+     public static void main(String[] args) throws CloneNotSupportedException
+     {
+         Check2 c2= new Check2();
+         c2.a=20;
+         c2.b=30;
+         c2.c.x=40;
+         c2.c.y=50;
+         Check2 cb=(Check2)c2.clone();
+         cb.a=100;
+         cb.c.x=400;
+         System.out.println(c2.a+ " "+c2.b+" "+c2.c.x+" "+c2.c.y+" ");
+         System.out.println(cb.a+" "+cb.b+"  "+cb.c.x+" "+cb.c.y+" ");
+     }
+ }
+
+/*Copy Constructor Method:*/
+
+public class Car
+{
+    private double cprice;
+    private String cname;
+    Car(double cprice,String cname)
+    {
+        this.cprice=cprice;
+        this.cname=cname;
+    }
+    Car(Car car)
+    {
+        System.out.println("After Using Copy Constructor:");
+        cprice=car.cprice;
+        cname=car.cname;
+    }
+    double showPrice()
+    {
+        return cprice;
+    }
+    String showName()
+    {
+        return cname;
+    }
+    
+    public static void main(String[] args)
+    {
+        Car c1= new Car(1500000.00, "Hyundai Creta");
+        System.out.println("Name of 1st Car: "+ c1.showName()+" ,Price of 1st Car: "+ c1.showPrice());
+        Car c2= new Car(c1);
+        System.out.println("Name of 2nd Car: "+ c2.showName()+" ,Price of 2nd Car: "+ c2.showPrice());
+    }
+}
