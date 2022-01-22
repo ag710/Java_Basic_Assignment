@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class Main
+{
+    void sortBin(int li[], int size)
+    {
+        int lt,rt;
+        lt=0;
+        rt=size-1;
+        while(lt<rt)
+        {
+            while(li[lt]==0 && lt<rt)
+            {
+                lt++;
+            }
+            
+            while(li[rt]==1 && lt<rt)
+            {
+                rt--;
+            }
+            
+            if(lt<rt)
+            {
+                li[lt]=0;
+                li[rt]=1;
+                lt++;
+                rt--;
+            }
+            
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        n= sc.nextInt();
+        System.out.println("Enter the binary array:");
+        int[] arr=new int[10];
+        for(int i=0;i<n;i++)
+        {
+          arr[i]=sc.nextInt();
+        }
+        Main sort= new Main();
+        
+        sort.sortBin(arr, n);
+        
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+ " ");
+        }
+    }
+}
