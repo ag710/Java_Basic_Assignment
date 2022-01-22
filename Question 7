@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.io.*;
+public class Main{
+    public static void main(String[] args)
+    {
+     Scanner sc= new Scanner(System.in);
+     String st= sc.nextLine();
+     char c=sc.next().charAt(0);
+     System.out.println("String :"+ st+ " Character :"+ c);
+     System.out.println("Frequency of character "+ c +" is "+ findCh(st, c));
+    }
+    public static int findCh(String s, char ch)
+    {
+        if(s.length()==0)
+        {
+            return 0;
+        }
+        
+        int cnt=0;
+        
+        if(s.charAt(0)==ch)
+        {
+            cnt++;
+        }
+        
+        cnt= cnt+ findCh(s.substring(1),ch);
+        return cnt;
+    }
+}
