@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        String st= sc.nextLine();
+        System.out.println("original string is: "+ st);
+        System.out.println("Enter the character to delete");
+        char del= sc.next().charAt(0);
+        System.out.println("String after character removal is: ");
+        remove(st, del);
+    }
+    
+    static void remove(String str, char no)
+    {
+        String val="";
+      for(int i=0;i<str.length();i++)
+      {
+          if(no!=str.charAt(i))
+          {
+          val=val+str.charAt(i);
+          }
+      }
+      System.out.println(val);
+    }
+}
