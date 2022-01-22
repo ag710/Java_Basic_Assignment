@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        String st= sc.nextLine();
+        int cnt;
+        String[] words= st.toLowerCase().trim().split(" ");
+        st= st.toLowerCase();
+        String duplicates="";
+        for(int i=0;i<words.length;i++)
+        {
+            cnt=1;
+            for(int j=i+1;j<words.length;j++)
+            {
+                if(words[i].equals(words[j]))
+                {
+                    cnt++;
+                }
+            }
+            if(cnt>1)
+            {
+                if(duplicates.isEmpty())
+                {
+                    duplicates+=" "+ words[i]+":"+ cnt;
+                }
+                else if(!duplicates.matches("(.*) "+ words[i]+" (.*)"))
+                {
+                    duplicates+=" "+words[i]+":"+cnt;
+                }
+            }
+        }
+        System.out.println(duplicates);
+    }
+}
