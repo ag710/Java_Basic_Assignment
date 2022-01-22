@@ -1,0 +1,125 @@
+abstract class Librarian                 /*Abstraction*/
+{
+    public abstract void removeBook();
+}
+class Book extends Librarian
+{
+  private int id;
+  private String bname;
+   public void addBook(int id, String bname)
+  {
+      this.id=id;
+      this.bname=bname;
+  }
+  @Override public void removeBook()
+  {
+      System.out.println("book is removed");
+  }
+  public void showNew()
+  {
+      System.out.println("New Book added is: "+ bname);
+  }
+}
+class Student
+{
+   private String course; /*Encapsulation*/
+   private String year;
+   public void setCourse(String course)
+   {
+       this.course=course;
+   }
+   public void setYear(String year)
+   {
+       this.year=year;
+   }
+   public String getCourse()
+   {
+       return course;
+   }
+   public String getYear()
+   {
+       return year;
+   }
+ 
+}
+class Borrow extends Book   /*Inheritance*/
+{
+    private int id;
+    public String title;
+    private String isdate;
+    public String duedate;
+    int days;
+    Book bk= new Book();
+    public void setBorrow(int id,String title,String isdate,String duedate)
+    {
+        this.id=id;
+        this.title=title;
+        this.isdate=isdate;
+        this.duedate=duedate;
+    }
+    public void getStatus()
+    {
+        if(id<10 || isdate==null)
+        {
+            System.out.println("Book is availiable to borrow");
+        }
+        else
+        {
+            System.out.println("Book Already issued");
+        }
+    }
+    
+    public void removeBook(int days) /*polymorphism*/
+    {
+        if(days<720)
+        {
+            System.out.println("Book Cant be removed");
+        }
+        else
+        {
+            bk.removeBook();
+        }
+    }
+    public void ban(){
+        System.out.println("You are banned to borrow any books for next week");
+    }
+}
+
+class Penalty extends Borrow
+{
+   Borrow pen= new Borrow();
+   public void checkPen(String title,String subdate,int extday)
+   {
+      int p=10;
+       if(extday>0)
+       {
+           System.out.println("Your penalty is rupees:"+ extday*p);
+           pen.ban();
+       }
+       else
+       {
+           System.out.println("No penalties!!");
+       }
+   }
+}
+
+public class Main
+
+{
+    public static void main(String[] args)
+    {
+        Student s= new Student();
+        Borrow b= new Borrow(); 
+        b.setBorrow(1,"Da vinci code",null,null);
+        Borrow c= new Borrow();
+        Penalty ch= new Penalty();
+        c.setBorrow(11,"Amar chitra Katha","24 nov 2021","27 nov 2021");
+        s.setCourse("Btech");
+        s.setYear("2021");
+        System.out.println(s.getCourse()+" "+s.getYear());
+        b.getStatus();
+        c.getStatus();
+        c.removeBook(701);
+        ch.checkPen("Amar Chitra Katha","1 dec 2021",3);
+    }
+}
