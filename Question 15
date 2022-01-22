@@ -1,0 +1,27 @@
+class Singleton
+{
+    private static Singleton single=null;
+    public String s;
+    private Singleton()
+    {
+        s="This string belongs to singleton class";
+    }
+    public static Singleton get()
+    {
+        if(single==null)
+        {
+            single=new Singleton();
+        }
+        return single;
+    }
+}
+
+public class Main{
+    public static void main(String[] args)
+    {
+        Singleton a= Singleton.get();
+        Singleton b= Singleton.get();
+        Singleton c= Singleton.get();
+        System.out.println("Value of a: "+ a+ " Value of b: "+b+" Value of c: "+c);
+    }
+}
