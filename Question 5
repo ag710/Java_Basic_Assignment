@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int val;
+        System.out.println("Enter the value: ");
+        val=sc.nextInt();
+        fct(val);
+    }
+    
+    static void fct(int n)
+    {
+        int f=1;
+        while(n>0)
+        {
+            f=f*n;
+            n--;
+        }
+        System.out.println("Factorial: "+ f);
+    }
+}
