@@ -1,0 +1,105 @@
+public class Program {
+        
+        enum DuckType {
+            
+            RUBBER, MALLARD, REDHEAD;
+        }
+        
+        public interface IShowDetail {
+            
+            void ShowDetails();
+        }
+        
+        static class Duck implements IShowDetail {
+            
+            private double weight;
+            
+            private int numberWings;
+            
+            private DuckType duckType;
+            
+            public Duck() {
+                
+            }
+            
+            
+            public Duck(double weight, int numberWings, DuckType duckType) {
+                this.weight =weight;
+                this.numberWings =numberWings;
+                this.duckType =duckType;
+            }
+            
+            
+            public void ShowDetails() {
+                if (duckType == DuckType.MALLARD) {
+                    System.out.println("Mallard duck:");
+                }
+                
+                if (duckType == DuckType.RUBBER) {
+                    System.out.println("Rubber duck:");
+                }
+                
+                if (duckType == DuckType.REDHEAD) {
+                    System.out.println("Redhead duck:");
+                }
+                
+                System.out.println("Weight: "+  weight);
+                System.out.println("Number of wings: "+ numberWings);
+            }
+        }
+        
+        static class RubberDuck extends Duck {
+            
+            public RubberDuck(double weight, int numberWings, DuckType duckType) {
+                super(weight, numberWings, duckType);
+                
+                
+            }
+            
+            public void ShowDetails() {
+                super.ShowDetails();
+                System.out.println("Rubber ducks dont fly and squeak.");
+            }
+        }
+        
+        static class MallardDuck extends Duck {
+            
+            public MallardDuck(double weight, int numberWings, DuckType duckType) {
+                super(weight, numberWings, duckType);
+                
+                
+            }
+            
+            public void ShowDetails() {
+                super.ShowDetails();
+                System.out.println("Mallard ducks fly fast and quack loud.");
+            }
+        }
+        
+       static class RedheadDuck extends Duck {
+            
+            public RedheadDuck(double weight, int numberWings, DuckType duckType) {
+                super(weight, numberWings, duckType);
+                
+                
+            }
+            
+            public void ShowDetails() {
+                super.ShowDetails();
+                System.out.println("Redhead ducks fly slow and quack mild.");
+            }
+        }
+        
+        public static void main(String[] args) {
+            
+            IShowDetail[] ducks = new IShowDetail[3];
+            ducks[0] = new RubberDuck(20, 2, DuckType.RUBBER);
+            ducks[1] = new MallardDuck(12, 2, DuckType.MALLARD);
+            ducks[2] = new RedheadDuck(5, 4, DuckType.REDHEAD);
+            for (int i = 0; (i < 3); i++) {
+                ducks[i].ShowDetails();
+                System.out.println(" ");
+            }
+        }
+    }
+    
