@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Main
+{
+    static String Fnm= "John";
+    static String Lnm="Charles";
+    static int age= 21;
+    
+    private static void staticMethod()
+    {
+        System.out.println("In static method: ");
+        System.out.println("John Charles 21");
+    }
+    
+    public static void main(String[] args)
+    {
+        System.out.println("In main:");
+        System.out.println(Fnm+" "+Lnm+" "+age);
+        staticMethod();
+    }
+    
+    static
+    {
+        System.out.println("In Static Block:");
+        System.out.println("John Charles 21");
+    }
+}
