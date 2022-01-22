@@ -1,0 +1,41 @@
+/*a) ClassNotFound Exception.*/
+
+public class Main {
+ 
+    public static void main(String args[])
+    {
+ 
+ 
+        try {
+ 
+            Class.forName("ClassNotFound");
+        }
+ 
+ 
+        catch (ClassNotFoundException ex) {
+ 
+            ex.printStackTrace();
+        }
+    }
+}
+
+/*b) NoClassDefFound error*/
+
+class NoClassDefFound {
+ 
+    void greeting()
+    {
+ 
+        System.out.println("hello!");
+    }
+}
+
+class Main {
+ 
+    
+    public static void main(String args[])
+    {
+        Main obj = new Main();
+        obj.greeting();
+    }
+}
