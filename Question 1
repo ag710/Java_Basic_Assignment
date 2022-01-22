@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main
+{
+    public static boolean findPop(String str)
+    {
+        int len=str.length();
+        for(int i=0;i<len-2;i++)
+        {
+            if(str.charAt(i)=='p' && str.charAt(i+2)=='p')
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args)
+    {
+       Scanner sc= new Scanner(System.in);
+       System.out.println("Enter the string:");
+       String st= sc.nextLine();
+       System.out.println("Your string is:"+ st);
+       System.out.println("Is there Pop or p$p in string??: "+ findPop(st));
+    }
+}
